@@ -8,7 +8,6 @@ main {
 
 html {
   overflow-x: hidden;
-  margin-right: calc(-1 * (100vw - 100%));
 }
 
 .wrapper-container {
@@ -56,19 +55,21 @@ html {
   max-height: 0rem;
   height: 100%;
   opacity: 0;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .cross {
   display: none;
   width: 2rem;
   height: 2rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(./assets/cross.svg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cross svg {
   transform: rotate(45deg);
-  transition: 0.5s;
+  transition: .5s;
 }
 
 input {
@@ -81,15 +82,16 @@ input:checked ~ .item__img {
   margin: 1rem;
 }
 
-input:checked ~ .item__decription .cross {
+input:checked ~ .item__decription .cross svg {
   transform: rotate(180deg);
 }
+
 @media (min-width: 480px) {
   .bayan-container:hover {
     color: black;
   }
 
-  .bayan-container:hover .item .item__decription .cross {
+  .bayan-container:hover .item .item__decription .cross svg {
     display: block;
   }
 
@@ -101,6 +103,10 @@ input:checked ~ .item__decription .cross {
     max-height: 30rem;
     opacity: 1;
     margin: 1rem;
+  }
+
+  .item:active {
+    color: white;
   }
 
   @media (max-width: 1024px) {

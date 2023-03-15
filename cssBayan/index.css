@@ -30,6 +30,12 @@ html {
   justify-content: center;
   align-items: center;
 }
+.item__line {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .separated-line {
   height: 0.1rem;
@@ -39,9 +45,17 @@ html {
   margin: 0.2rem 0;
 }
 
-.item__decription {
+.item__label {
   cursor: pointer;
   max-width: 50rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item__decription {
   width: 100%;
   background-color: rgb(0, 0, 139, 0.6);
   display: flex;
@@ -55,7 +69,7 @@ html {
   max-height: 0rem;
   height: 100%;
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .cross {
@@ -69,20 +83,20 @@ html {
 
 .cross svg {
   transform: rotate(45deg);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 input {
   display: none;
 }
 
-input:checked ~ .item__img {
+input:checked ~ .item__label .item__img {
   max-height: 30rem;
   opacity: 1;
   margin: 1rem;
 }
 
-input:checked ~ .item__decription .cross svg {
+input:checked ~ .item__label .item__decription .cross svg {
   transform: rotate(180deg);
 }
 
@@ -91,7 +105,7 @@ input:checked ~ .item__decription .cross svg {
     color: black;
   }
 
-  .bayan-container:hover .item .item__decription .cross svg {
+  .bayan-container:hover .item .item__label .item__decription .cross svg {
     display: block;
   }
 
@@ -99,7 +113,7 @@ input:checked ~ .item__decription .cross svg {
     cursor: pointer;
   }
 
-  .item:hover > .item__img {
+  .item:hover > .item__label .item__img {
     max-height: 30rem;
     opacity: 1;
     margin: 1rem;
@@ -128,11 +142,11 @@ input:checked ~ .item__decription .cross svg {
       height: 1.5rem;
     }
 
-    input:checked ~ .item__img {
+    input:checked ~ .item__label .item__img {
       max-height: 20rem;
     }
 
-    .item:hover > .item__img {
+    .item:hover > .item__label .item__img {
       max-height: 20rem;
     }
 
@@ -158,12 +172,13 @@ input:checked ~ .item__decription .cross svg {
   }
 
   .cross {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 1rem;
     height: 1rem;
   }
 
-  input:checked ~ .item__img {
+  input:checked ~ .item__label .item__img {
     max-height: 15rem;
   }
 
